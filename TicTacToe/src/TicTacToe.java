@@ -63,7 +63,7 @@ public class TicTacToe implements ActionListener {
                 } else {
                     if (buttons[i].getText().equals("")) {
                         buttons[i].setForeground(new Color(0, 0, 255));
-                        buttons[i].setText("0");
+                        buttons[i].setText("O");
                         player1_turn = true;
                         textfield.setText("X turn");
                         check();
@@ -91,12 +91,12 @@ public class TicTacToe implements ActionListener {
     public void check() {
         // Check rows
         for (int i = 0; i < 9; i += 3) {
-            if (buttons[i].getText().equals("X") && buttons[i + 1].getText().equals("X") && buttons[i + 2].getText().equals("X")) {
-                xWins(i, i + 1, i + 2);
-                return;
-            }
             if (buttons[i].getText().equals("O") && buttons[i + 1].getText().equals("O") && buttons[i + 2].getText().equals("O")) {
                 oWins(i, i + 1, i + 2);
+                return;
+            }
+            if (buttons[i].getText().equals("X") && buttons[i + 1].getText().equals("X") && buttons[i + 2].getText().equals("X")) {
+                xWins(i, i + 1, i + 2);
                 return;
             }
         }
